@@ -2,12 +2,12 @@ package anshitaarya;
 
 public class RemoveDuplicateNum {
 	public static int[] removeDuplicates(int[] duplicate) {
-		int l = duplicate.length;
+		int length = duplicate.length;
 		int i, j, m = 1, count;
 
-		int[] dup = new int[l];
+		int[] dup = new int[length];
 		dup[0] = duplicate[0];
-		for (i = 1; i < l; i++) {
+		for (i = 1; i < length; i++) {
 			count = 0;
 			for (j = 0; j < i; j++) {
 				if (duplicate[i] == dup[j])
