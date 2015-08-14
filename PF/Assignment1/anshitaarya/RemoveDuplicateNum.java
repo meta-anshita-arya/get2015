@@ -1,5 +1,7 @@
 package anshitaarya;
 
+import java.util.Scanner;
+
 public class RemoveDuplicateNum {
 	public static int[] removeDuplicates(int[] duplicate) {
 		int length = duplicate.length;
@@ -27,7 +29,16 @@ public class RemoveDuplicateNum {
 
 	public static void main(String args[]) {
 		RemoveDuplicateNum obj = new RemoveDuplicateNum();
-		int[] duplicate = { 2, 5, 4, 6, 3, 8, 5, 3, 3, 6, 3, 9, 0 };
+		Scanner in = new Scanner(System.in);
+		System.out.println("enter lenght of array");
+		int length = in.nextInt();
+		int[] duplicate = new int[length];
+		int loop;
+		System.out.println("enter elements of array");
+		for (loop = 0; loop < length; loop++) {
+			duplicate[loop] = in.nextInt();
+		}
+
 		int[] output = obj.removeDuplicates(duplicate);
 		for (int i = 0; i < 8; i++) {
 			System.out.print(output[i]);
