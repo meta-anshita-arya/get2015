@@ -1,0 +1,18 @@
+//main class
+public class Booking {
+
+	public static void main(String[] args) {
+
+		TrainDetails.readTrainInfo(); // tracking data from files and storing in
+										// list
+		Procedure procedure = new Procedure();
+		procedure.sortChart();// sorting chart
+
+		System.out.println("HELLO");
+
+		TrainMenu trainMenu = new TrainMenu();// calling menu
+		trainMenu.menu();
+
+	}
+
+}
