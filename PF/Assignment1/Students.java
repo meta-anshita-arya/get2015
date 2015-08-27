@@ -16,7 +16,7 @@ public class Students {
 
 	// to add student
 	public void enqueue(String name, int rank) {
-		if (top < 200) {
+		
 			if (top == -1 && rear == -1) {
 				top++;
 				rear++;
@@ -26,12 +26,7 @@ public class Students {
 			}
 			rankList[rear] = rank;
 			NameList[rear] = name;
-		} else {
-			NameList = Arrays.copyOf(NameList, NameList.length + 10);
-			rear++;
-			NameList[rear] = name;
-			rankList[rear] = rank;
-		}
+		
 
 	}
 
