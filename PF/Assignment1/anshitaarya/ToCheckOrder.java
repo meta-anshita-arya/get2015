@@ -9,13 +9,12 @@ public class ToCheckOrder {
 		
 		for(i=0;i<input.length-1;i++)
 		{
-			
-				if(input[i]<input[i+1] )
-				{
-					count1++;
-				}
-				else
-					break;
+			if(input[i]<input[i+1] )
+			{
+		        	count1++;
+			}
+			else
+				break;
 				
 		}
 		for(i=0;i<input.length-1;i++)
@@ -29,9 +28,9 @@ public class ToCheckOrder {
 		}
 		
 		if(count1==input.length-1)
-			return 1;
+	        	return 1;
 		else if(count2==input.length-1)
-		 return 2;
+	        	 return 2;
 		else return 0;
 		}
 	public static void main(String arg[])
@@ -43,9 +42,7 @@ public class ToCheckOrder {
 		int[] input =new int[size];
 		for (int a=0; a<size; a++)
 		{
-			
-	
-		input[a]= in.nextInt();
+	        	input[a]= in.nextInt();
 		}
 		prg5 assign=new prg5();
 		System.out.println(assign.checkOrder(input));
