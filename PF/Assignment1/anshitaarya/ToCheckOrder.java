@@ -2,7 +2,7 @@ package anshitaarya;
 
 
 import java.util.Scanner;
-public class prg5 {
+public class ToCheckOrder {
 	int checkOrder(int input[])
 	{
 		int i,j,count=0,count1=0,count2=0;
