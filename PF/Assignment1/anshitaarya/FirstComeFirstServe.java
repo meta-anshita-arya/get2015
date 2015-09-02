@@ -1,6 +1,6 @@
 package anshitaarya;
 
-public class prg4 {
+public class FirstComeFirstServe {
 	 int[][] FCFS( int arrival_time [], int job_size[] ,int n)
 	 {
 		 int i;
