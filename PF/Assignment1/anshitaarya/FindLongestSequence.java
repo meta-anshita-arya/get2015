@@ -1,6 +1,6 @@
 package anshitaarya;
 
-public class prg3 {
+public class FindLongestSequence {
 	int[] longestSequence(int input[])
 	{
 		int i,j,k=input.length,count=0,maxCount=0,state=0;
