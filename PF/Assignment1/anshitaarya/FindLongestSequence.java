@@ -25,8 +25,8 @@ public class FindLongestSequence {
 		j=0;
 		for(i=state;i<state+maxCount;i++)
 		{
-		 arr[j]=input[i];
-		 j++;
+		       arr[j]=input[i];
+		       j++;
 		}
 		return arr;
 	}
@@ -36,9 +36,7 @@ public class FindLongestSequence {
 		prg3 assign=new prg3();
 		 for(int i=0;i<assign.longestSequence(input).length;i++)
 		 {
-		 System.out.print(assign.longestSequence(input)[i]);
+	        	System.out.print(assign.longestSequence(input)[i]);
 		 }
-		
 	}
-
 }
