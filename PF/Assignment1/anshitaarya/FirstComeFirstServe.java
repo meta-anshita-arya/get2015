@@ -14,40 +14,36 @@ public class FirstComeFirstServe {
 		 {
 			 if(arrival_time[i]<jobFinishTime[i-1])
 			 {
-			 jobStartTime[i]=jobFinishTime[i-1]+1;
-			 jobWaitTime[i]=jobStartTime[i]-arrival_time[i];
-			 jobFinishTime[i]=jobStartTime[i]+job_size[i]-1;
+		         	 jobStartTime[i]=jobFinishTime[i-1]+1;
+			         jobWaitTime[i]=jobStartTime[i]-arrival_time[i];
+		         	 jobFinishTime[i]=jobStartTime[i]+job_size[i]-1;
 			 }
 			 else
 			 {
 				 jobWaitTime[i]=0;
 				 jobStartTime[i]=arrival_time[i];
 				 jobFinishTime[i]=jobStartTime[i]+job_size[i]-1;
-				 
 			 }
-			 
 		 }
 		 int [][]jobArrange=new int[n][5];
 		 for(i=0;i<n;i++)
 		 {
 			 
 			
-				 jobArrange[i][0]=i+1;
-				 jobArrange[i][1]=arrival_time[i];
-				 jobArrange[i][2]=jobWaitTime[i];
-				 jobArrange[i][3]=jobStartTime[i];
-				 jobArrange[i][4]=jobFinishTime[i];
-			 
-			 
+			jobArrange[i][0]=i+1;
+	         	jobArrange[i][1]=arrival_time[i];
+			jobArrange[i][2]=jobWaitTime[i];
+			jobArrange[i][3]=jobStartTime[i];
+			jobArrange[i][4]=jobFinishTime[i];
 		 }
 		 return jobArrange;
 	 }
 	 public static void main(String arg[])
 	 {
 		 int []Arrival_time ={1, 5, 9, 25};
-		               int[] Job_size={12,7,2,5};
-		               int n=Job_size.length;
-		 prg4 assign=new prg4();
+		 int[] Job_size={12,7,2,5};
+		 int n=Job_size.length;
+		 FirstComeFirstServe assign=new FirstComeFirstServe();
 		 System.out.println(" job job arrival Time Job Waiting Time Job Start Time Job Finish Time");
 		 for(int i=0;i<n;i++)
 			 {
