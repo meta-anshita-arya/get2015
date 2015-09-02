@@ -1,6 +1,6 @@
 package anshitaarya;
 
-public class prg2 {
+public class RemoveDuplicate {
 	 public static int[] removeDuplicates(int[] duplicate){
          int l= duplicate.length;
          int i,j,m=1,count;
