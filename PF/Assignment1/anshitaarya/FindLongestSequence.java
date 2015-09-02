@@ -33,7 +33,7 @@ public class FindLongestSequence {
 	public static void main(String arg[])
 	{
 		int []input={1,2,3,2,3,4,5,3,4,2,2,3,4,5,6,7,8,1,2,4,5,6,7,8,9};
-		prg3 assign=new prg3();
+		FindLongestSequence assign=new FindLongestSequence();
 		 for(int i=0;i<assign.longestSequence(input).length;i++)
 		 {
 	        	System.out.print(assign.longestSequence(input)[i]);
