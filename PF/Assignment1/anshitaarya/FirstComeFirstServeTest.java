@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class prg4Test {
+public class FirstComeFirstServeTest {
 
 	prg4 assign=new prg4();
 	int a[]={1, 5, 9, 25};
