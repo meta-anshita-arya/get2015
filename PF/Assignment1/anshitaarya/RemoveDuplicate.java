@@ -13,24 +13,21 @@ public class RemoveDuplicate {
         	for(j=0;j<i;j++)
         	{
         		if(duplicate[i]==dup[j])
-        		
-        	{
+        	        {
         			count++;
-        	}
+                  	}
         	}
         	if(count==0)
         	{
-        			dup[m]=duplicate[i];
-        			m++;
+        		dup[m]=duplicate[i];
+        		m++;
         		}
         	}
-         
-         
 	        return dup;
 	    }
 	     
 	    public static void main(String args[]){
-	    	prg2 obj=new prg2();
+	    	RemoveDuplicate obj=new RemoveDuplicate();
 	        int[] duplicate = {2,5,4,6,3,8,5,3,3,6,3,9,0};
 	        int[] output = obj.removeDuplicates(duplicate);
 	        for(int i=0; i<8 ;i++)
