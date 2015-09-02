@@ -1,12 +1,9 @@
 package anshitaarya;
-
-
 import java.util.Scanner;
 public class ToCheckOrder {
 	int checkOrder(int input[])
 	{
 		int i,j,count=0,count1=0,count2=0;
-		
 		for(i=0;i<input.length-1;i++)
 		{
 			if(input[i]<input[i+1] )
@@ -15,7 +12,6 @@ public class ToCheckOrder {
 			}
 			else
 				break;
-				
 		}
 		for(i=0;i<input.length-1;i++)
 		{
@@ -23,8 +19,8 @@ public class ToCheckOrder {
 			{
 				count2++;
 			}
-			else break;
-			
+			else 
+			        break;
 		}
 		
 		if(count1==input.length-1)
@@ -44,7 +40,7 @@ public class ToCheckOrder {
 		{
 	        	input[a]= in.nextInt();
 		}
-		prg5 assign=new prg5();
+		ToCheckOrder assign=new ToCheckOrder();
 		System.out.println(assign.checkOrder(input));
 	}
 
