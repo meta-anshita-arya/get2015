@@ -4,7 +4,7 @@ import java.util.*;
 
 
 
-public class assignment1 {
+public class BinaryToOctal {
 
 	private static Scanner in;
 
