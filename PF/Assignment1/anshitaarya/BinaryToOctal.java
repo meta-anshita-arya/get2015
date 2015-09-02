@@ -7,7 +7,7 @@ public class BinaryToOctal {
 	{
         	in = new Scanner(System.in);
 		 int num,decimal,octal;
-		 assignment1 obj=new assignment1();
+		 BinaryToOctal obj=new BinaryToOctal();
 		 System.out.println("enter binary number");
 		 num=in.nextInt();
 		 decimal= obj.convertTodecimal(num);
@@ -40,5 +40,5 @@ public class BinaryToOctal {
 	         	i=i*10;
 		}
 		return (octal);
-}
+        }
 }
