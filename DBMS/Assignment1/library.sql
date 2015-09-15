@@ -8,9 +8,9 @@ SELECT
     b.accession_no,
     bi.issue_dt,
     bi.due_dt,
-    TIMESTAMPDIFF(MONTH,
+    (TIMESTAMPDIFF(MONTH,
         br.issue_dt,
-        br.return_dt) AS months_duration
+        br.return_dt)>2) AS months_duration
 FROM
     members m,
     titles t,
@@ -18,7 +18,7 @@ FROM
     books b,
     book_issue bi
 WHERE
-    m.member_id = bi.member_id && bi.accession_no = b.accession_no && b.title_id = t.title_id && m.member_id = br.member_id && b.status = 0;
+    m.member_id = bi.member_id && bi.accession_no = b.accession_no && b.title_id = t.title_id && m.member_id = br.member_id && b.status = 0 ;
             
          --  to display member name of maximum length and length  
 SELECT 
