@@ -6,72 +6,134 @@ import java.sql.Statement;
 
 public class CarJdbcHelper {
 
-	public static void insertInCarTable(Car objCar)
-			throws VehicleManagementException {
-		Connection connection = null;
-		Statement statement = null;
-		PreparedStatement preparedStatement = null;
-		ConnectionUtil connectionUtil = new ConnectionUtil();
+	// to create car table
+	public static void createCarTable() throws VehicleManagementException {
+		Connection con = null;
+		Statement stmt = null;
+		ConnectionUtil conUtil = new ConnectionUtil();
 		/* creates connection to db */
-		connection = connectionUtil.getConnection();
-		ResultSet resultSet = null;
+		con = conUtil.getConnection();
 
-		String query = "INSERT INTO Vehicle (make, model, engine_in_cc, fuel_capacity, milage, price, road_tax) VALUES (?,?,?,?,?,?,?)";
-
+		String query = "CREATE TABLE IF NOT EXISTS Car"
+				+ "("
+				+ "car_id INT AUTO_INCREMENT PRIMARY KEY,"
+				+ "ac tinyint(1),"
+				+ "power_steering tinyint(1),"
+				+ "accessory_kit tinyint(1),"
+				+ "vehicle_id INT,"
+				+ "CONSTRAINT `vehicle_key` FOREIGN KEY (vehicle_id) REFERENCES Vehicle (vehicle_id) ON DELETE CASCADE"
+				+ ")";
 		try {
-			preparedStatement = (PreparedStatement) connection
-					.prepareStatement(query);
-			/* set variable in prepared statement */
-			preparedStatement.setString(1, objCar.getMake());
-			preparedStatement.setString(2, objCar.getModel());
-			preparedStatement.setDouble(3, objCar.getEngineInCC());
-			preparedStatement.setDouble(4, objCar.getFuelCapacity());
-			preparedStatement.setDouble(5, objCar.getMilage());
-			preparedStatement.setDouble(6, objCar.getPrice());
-			preparedStatement.setDouble(7, objCar.getRoadTax());
-			preparedStatement.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+			stmt = con.createStatement();
+			stmt.executeUpdate(query);
 
-		preparedStatement = null;
-
-		String query1 = "SELECT make FROM Vehicle";
-		String query2 = "INSERT INTO Car ( ac, power_steering, accessory_kit, vehicle_id ) VALUES (?,?,?,?)";
-
-		try {
-			statement = connection.createStatement();
-			resultSet = statement.executeQuery(query1);
-			int vehicle_id = 0;
-			while (resultSet.next())
-				vehicle_id += 1;
-			System.out.println(vehicle_id);
-			preparedStatement = (PreparedStatement) connection
-					.prepareStatement(query2);
-			/* set variable in prepared statement */
-			preparedStatement.setBoolean(1, objCar.getAC());
-			preparedStatement.setBoolean(2, objCar.getPowerSteering());
-			preparedStatement.setBoolean(3, objCar.getAccessoryKit());
-			preparedStatement.setInt(4, vehicle_id);
-			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			/* close connection */
 			try {
-				if (connection != null) {
-					connection.close();
+				if (con != null) {
+					con.close();
 				}
-				if (preparedStatement != null) {
-					preparedStatement.close();
+				if (stmt != null) {
+					stmt.close();
 				}
-				if (statement != null) {
-					statement.close();
-				}
+
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 	}
 
+	// Function to insert in table
+	public static int insertInCarTable(Car objCar)
+			throws VehicleManagementException {
+		int countCar = 0;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ConnectionUtil conUtil = new ConnectionUtil();
+		/* creates connection to db */
+		con = conUtil.getConnection();
+
+		String query = "INSERT INTO Car ( ac, power_steering, accessory_kit, vehicle_id ) VALUES (?,?,?,?)";
+
+		try {
+			ps = (PreparedStatement) con.prepareStatement(query);
+			/* set variable in prepared statement */
+			ps.setBoolean(1, objCar.isAC());
+			ps.setBoolean(2, objCar.isPowerSteering());
+			ps.setBoolean(3, objCar.isAccessoryKit());
+			ps.setInt(4, objCar.getVehicleId());
+			countCar = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			/* close connection */
+			try {
+				if (con != null) {
+					con.close();
+				}
+				if (ps != null) {
+					ps.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return countCar;
+	}
+
+	// Function to delete car from table car
+	public static void deleteCarTable(int vehicleId)
+			throws VehicleManagementException {
+		String str = null;
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		ConnectionUtil conUtil = new ConnectionUtil();
+		/* creates connection to db */
+		con = conUtil.getConnection();
+
+		String query = "SELECT vehicle_id FROM Car WHERE vehicle_id = "
+				+ vehicleId;
+		try {
+			stmt = con.createStatement();
+			/* execute query using statement */
+			rs = stmt.executeQuery(query);
+			if (rs.next() == false) {
+				System.out.println("Id doesnot exist");
+				return;
+			} else {
+				stmt = null;
+				query = "DELETE FROM Vehicle WHERE vehicle_id = " + vehicleId;
+				try {
+					stmt = con.createStatement();
+					stmt.executeUpdate(query);
+					System.out.println("Car deleted");
+				} catch (SQLException e) {
+					throw new VehicleManagementException("Cannot delete car : "
+							+ e);
+				}
+			}
+		} catch (SQLException e) {
+			throw new VehicleManagementException("Cannot delete car : " + e);
+		} finally {
+			/* close connection */
+			try {
+				if (con != null) {
+					con.close();
+				}
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
 }
