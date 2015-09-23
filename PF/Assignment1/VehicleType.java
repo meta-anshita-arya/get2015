@@ -1,3 +1,4 @@
+// Enum for car and bike
 public enum VehicleType {
-	Car, Bike;
+	CAR, BIKE;
 }
