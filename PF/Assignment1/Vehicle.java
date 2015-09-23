@@ -1,7 +1,8 @@
-// Vehicle class
+import java.sql.Timestamp;
 
+// abstract class vehicle to store data of general vehicle
 public abstract class Vehicle {
-
+	private int vehicleId;
 	private String make;
 	private String model;
 	private double engineInCC;
@@ -9,7 +10,10 @@ public abstract class Vehicle {
 	private double milage;
 	private double price;
 	private double roadTax;
+	private Timestamp createdTime;
+	private String createdBy;
 
+	// getter setter
 	public String getMake() {
 		return make;
 	}
@@ -30,8 +34,8 @@ public abstract class Vehicle {
 		return engineInCC;
 	}
 
-	public void setEngineInCC(double engineInCC) {
-		this.engineInCC = engineInCC;
+	public void setEngineInCC(double d) {
+		this.engineInCC = d;
 	}
 
 	public double getFuelCapacity() {
@@ -66,28 +70,17 @@ public abstract class Vehicle {
 		this.roadTax = roadTax;
 	}
 
-	// calculates road price
-	double calculateOnRoadPrice() {
-		return (price + roadTax);
+	public String toString() {
+		return "make:" + getMake() + "," + "model:" + getModel();
+
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(engineInCC);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(fuelCapacity);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((make == null) ? 0 : make.hashCode());
-		temp = Double.doubleToLongBits(milage);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((model == null) ? 0 : model.hashCode());
-		temp = Double.doubleToLongBits(price);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(roadTax);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
 
@@ -97,42 +90,44 @@ public abstract class Vehicle {
 			return true;
 		if (obj == null)
 			return false;
-		if (!(obj instanceof Vehicle))
+		if (getClass() != obj.getClass())
 			return false;
 		Vehicle other = (Vehicle) obj;
-		if (Double.doubleToLongBits(engineInCC) != Double
-				.doubleToLongBits(other.engineInCC))
-			return false;
-		if (Double.doubleToLongBits(fuelCapacity) != Double
-				.doubleToLongBits(other.fuelCapacity))
-			return false;
 		if (make == null) {
 			if (other.make != null)
 				return false;
 		} else if (!make.equals(other.make))
-			return false;
-		if (Double.doubleToLongBits(milage) != Double
-				.doubleToLongBits(other.milage))
 			return false;
 		if (model == null) {
 			if (other.model != null)
 				return false;
 		} else if (!model.equals(other.model))
 			return false;
-		if (Double.doubleToLongBits(price) != Double
-				.doubleToLongBits(other.price))
-			return false;
-		if (Double.doubleToLongBits(roadTax) != Double
-				.doubleToLongBits(other.roadTax))
-			return false;
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Vehicle [make=" + make + ", model=" + model + ", engineInCC="
-				+ engineInCC + ", fuelCapacity=" + fuelCapacity + ", milage="
-				+ milage + ", price=" + price + ", roadTax=" + roadTax + "]";
+	public int getVehicleId() {
+		return vehicleId;
+	}
+
+	public void setVehicleId(int vehicleId) {
+		this.vehicleId = vehicleId;
+	}
+
+	public Timestamp getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(Timestamp createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
 	}
 
 }
