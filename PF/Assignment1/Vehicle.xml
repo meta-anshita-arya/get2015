@@ -1,8 +1,6 @@
-  <?xml version="1.0" encoding="UTF-8" ?>
-- <!-- config file for vehicle -->
--
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- config file for vehicle -->
 <vehicle>
-	-
 	<car>
 		<vehicleId>1</vehicleId>
 		<make>Make1</make>
@@ -17,7 +15,6 @@
 		<accessoryKit>true</accessoryKit>
 		<powerSteering>true</powerSteering>
 	</car>
-	-
 	<car>
 		<vehicleId>2</vehicleId>
 		<make>Make2</make>
@@ -32,7 +29,6 @@
 		<accessoryKit>true</accessoryKit>
 		<powerSteering>true</powerSteering>
 	</car>
-	-
 	<car>
 		<vehicleId>3</vehicleId>
 		<make>Make3</make>
@@ -47,7 +43,6 @@
 		<accessoryKit>true</accessoryKit>
 		<powerSteering>no</powerSteering>
 	</car>
-	-
 	<bike>
 		<vehicleId>4</vehicleId>
 		<make>Make4</make>
@@ -61,7 +56,6 @@
 		<selfStart>true</selfStart>
 		<helmetPrice>1200</helmetPrice>
 	</bike>
-	-
 	<bike>
 		<vehicleId>5</vehicleId>
 		<make>Make5</make>
@@ -75,7 +69,6 @@
 		<selfStart>no</selfStart>
 		<helmetPrice>1500</helmetPrice>
 	</bike>
-	-
 	<bike>
 		<vehicleId>6</vehicleId>
 		<make>Make6</make>
