@@ -6,9 +6,9 @@ public class ConnectionUtil {
 
 	private static final String DB_URL = "jdbc:mysql://localhost:3306/vehicle_management_system";
 	private static final String USER = "root";
-	private static final String PASSWORD = "root";
+	private static final String PASSWORD = "mysql";
 
-	private Connection connection = null;
+	private Connection con = null;
 
 	public Connection getConnection() throws VehicleManagementException {
 
@@ -22,11 +22,11 @@ public class ConnectionUtil {
 
 		/* open connection */
 		try {
-			connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+			con = DriverManager.getConnection(DB_URL, USER, PASSWORD);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return connection;
+		return con;
 	}
 
 }
