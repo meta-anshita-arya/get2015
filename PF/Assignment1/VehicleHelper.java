@@ -1,19 +1,20 @@
-// creates instance of various vehicle classes
-
+//Class to create vehicle
 public class VehicleHelper {
-
-	// creates instance of vehicle class
-	public static Vehicle createVehicle(String vehicleType, String make,
+	// Function to create vehicle,car and bike object
+	public static Vehicle createVehicle(VehicleType vehicleType, String make,
 			String model) {
 		Vehicle vehicle;
-		if (vehicleType.equals(VehicleType.Car))
+		if (VehicleType.CAR.equals(vehicleType)) {
 			vehicle = new Car();
-		else
-			vehicle = new Bike();
-		vehicle.setMake(make);
-		vehicle.setModel(model);
-		return vehicle;
 
+		} else {
+
+			vehicle = new Bike();
+
+		}
+		vehicle.setModel(model);
+		vehicle.setMake(make);
+		return vehicle;
 	}
 
 }
