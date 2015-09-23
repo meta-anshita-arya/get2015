@@ -11,24 +11,27 @@ import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
+// Class to read data from XML file
 public class StaxParser {
 	static final String VEHICLE = "vehicle";
 	static final String CAR = "car";
 	static final String BIKE = "bike";
+	static final String VEHICLE_ID = "vehicleId";
 	static final String MAKE = "make";
 	static final String MODEL = "model";
-	static final String ENGINEINCC = "engineInCC";
-	static final String FUELCAPACITY = "fuelCapacity";
+	static final String ENGINE_IN_CC = "engineInCC";
+	static final String FUEL_CAPACITY = "fuelCapacity";
 	static final String MILAGE = "milage";
 	static final String PRICE = "price";
 	static final String ROADTAX = "roadTax";
+	static final String CREATED_BY = "createdBy";
 	static final String AC = "ac";
-	static final String POWERSTERING = "powerStering";
-	static final String ACCESSORYKIT = "accessoryKit";
-	static final String SELFSTART = "selfStart";
-	static final String HELMETPRICE = "helmetPrice";
+	static final String POWER_STEERING = "powerStering";
+	static final String ACCESSORY_KIT = "accessoryKit";
+	static final String SELF_START = "selfStart";
+	static final String HELMET_PRICE = "helmetPrice";
 
-	// @SuppressWarnings({ "unchecked", "null" })
+	// -Function to read data from XML
 	public List<Vehicle> readConfig(String configFile) {
 		List<Vehicle> vehicleObjectList = new ArrayList<Vehicle>();
 		try {
@@ -54,6 +57,16 @@ public class StaxParser {
 
 					if (event.isStartElement()) {
 						if (event.asStartElement().getName().getLocalPart()
+								.equals(VEHICLE_ID)) {
+							event = eventReader.nextEvent();
+							objVehicle.setVehicleId(Integer.parseInt(event
+									.asCharacters().getData()));
+							continue;
+						}
+					}
+
+					if (event.isStartElement()) {
+						if (event.asStartElement().getName().getLocalPart()
 								.equals(MAKE)) {
 							event = eventReader.nextEvent();
 							objVehicle.setMake(event.asCharacters().getData());
@@ -69,7 +82,7 @@ public class StaxParser {
 					}
 
 					if (event.asStartElement().getName().getLocalPart()
-							.equals(ENGINEINCC)) {
+							.equals(ENGINE_IN_CC)) {
 						event = eventReader.nextEvent();
 						objVehicle.setEngineInCC(Double.parseDouble(event
 								.asCharacters().getData()));
@@ -77,7 +90,7 @@ public class StaxParser {
 					}
 
 					if (event.asStartElement().getName().getLocalPart()
-							.equals(FUELCAPACITY)) {
+							.equals(FUEL_CAPACITY)) {
 						event = eventReader.nextEvent();
 						objVehicle.setFuelCapacity(Double.parseDouble(event
 								.asCharacters().getData()));
@@ -109,6 +122,13 @@ public class StaxParser {
 					}
 
 					if (event.asStartElement().getName().getLocalPart()
+							.equals(CREATED_BY)) {
+						event = eventReader.nextEvent();
+						objVehicle.setCreatedBy(event.asCharacters().getData());
+						continue;
+					}
+
+					if (event.asStartElement().getName().getLocalPart()
 							.equals(AC)) {
 						event = eventReader.nextEvent();
 						((Car) objVehicle).setAC(Boolean.valueOf(event
@@ -117,7 +137,7 @@ public class StaxParser {
 					}
 
 					if (event.asStartElement().getName().getLocalPart()
-							.equals(POWERSTERING)) {
+							.equals(POWER_STEERING)) {
 						event = eventReader.nextEvent();
 						((Car) objVehicle).setPowerSteering(Boolean
 								.valueOf(event.asCharacters().getData()));
@@ -125,7 +145,7 @@ public class StaxParser {
 					}
 
 					if (event.asStartElement().getName().getLocalPart()
-							.equals(ACCESSORYKIT)) {
+							.equals(ACCESSORY_KIT)) {
 						event = eventReader.nextEvent();
 						((Car) objVehicle).setAccessoryKit(Boolean
 								.valueOf(event.asCharacters().getData()));
@@ -133,7 +153,7 @@ public class StaxParser {
 					}
 
 					if (event.asStartElement().getName().getLocalPart()
-							.equals(SELFSTART)) {
+							.equals(SELF_START)) {
 						event = eventReader.nextEvent();
 						((Bike) objVehicle).setSelfStart(Boolean.valueOf(event
 								.asCharacters().getData()));
@@ -141,28 +161,21 @@ public class StaxParser {
 					}
 
 					if (event.asStartElement().getName().getLocalPart()
-							.equals(HELMETPRICE)) {
+							.equals(HELMET_PRICE)) {
 						event = eventReader.nextEvent();
 						((Bike) objVehicle).setHelmetPrice(Integer
 								.parseInt(event.asCharacters().getData()));
 						continue;
 					}
 
-					// vehicleObjectList.add(objVehicle);
 				}
-				// If we reach the end of a vehicle element, we add it to the
-				// list
+
 				if (event.isEndElement()) {
 					EndElement endElement = event.asEndElement();
-					if (endElement.getName().getLocalPart() == (CAR)) // || if (
-																		// endElement.getName().getLocalPart()
-																		// ==
-																		// (Bike)
-																		// )
-					{
-						vehicleObjectList.add(((Car) objVehicle));
-					} else if (endElement.getName().getLocalPart() == (BIKE))
-						vehicleObjectList.add(((Bike) objVehicle));
+					if (endElement.getName().getLocalPart() == (CAR)
+							|| endElement.getName().getLocalPart() == (BIKE))
+						vehicleObjectList.add(objVehicle);
+
 				}
 
 			}
