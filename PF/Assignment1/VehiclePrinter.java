@@ -1,10 +1,10 @@
-// prints objects of various vehicle classes
-
+// Class to print objects
 public class VehiclePrinter {
+	// to print vehicles
+	public static String printVehicleSpecification(Vehicle vehicle) {
 
-	public static String printVehicleSpecification(Vehicle vehicleObj) {
-		System.out.println(vehicleObj);
-		return vehicleObj.toString();
+		return vehicle.toString();
+
 	}
 
 }
