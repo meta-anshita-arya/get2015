@@ -5,26 +5,15 @@ public class VehicleHelper {
 	// creates instance of vehicle class
 	public static Vehicle createVehicle(String vehicleType, String make,
 			String model) {
+		Vehicle vehicle;
 		if (vehicleType.equals(VehicleType.Car))
-			return createCar(make, model);
+			vehicle = new Car();
 		else
-			return createBike(make, model);
-	}
+			vehicle = new Bike();
+		vehicle.setMake(make);
+		vehicle.setModel(model);
+		return vehicle;
 
-	// creates instance of car class
-	public static Vehicle createCar(String make, String model) {
-		Car carObj = new Car();
-		carObj.setMake(make);
-		carObj.setModel(model);
-		return carObj;
-	}
-
-	// creates instance of bike class
-	public static Bike createBike(String make, String model) {
-		Bike bikeObj = new Bike();
-		bikeObj.setMake(make);
-		bikeObj.setModel(model);
-		return bikeObj;
 	}
 
 }
