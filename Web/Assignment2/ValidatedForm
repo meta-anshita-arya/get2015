@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+			<link rel="stylesheet" href="style2.css" type="text/css">
+				<script>
+					function namevalidate(e) {
+					if (e.which) {
+					keynum = e.which;
+					}
+					keychar = String.fromCharCode(keynum);
+					numcheck = /\d/;
+					return !numcheck.test(keychar);
+					}
+
+					function validateComplete() {
+					var reg =
+					/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+					var letters = /^[A-Z a-z]+$/;
+					var address = document.EmployeeForm.email.value;
+					var inputtxt = document.EmployeeForm.specification.value;
+					if (reg.test(address) == false) {
+					alert("Invalid Email Address");
+					document.getElementById('email').value = "";
+					document.getElementById('email').style.background = "#B0E2FF";
+					document.EmployeeForm.email.focus();
+					return false;
+					} else if (!inputtxt.match(letters)) {
+					alert("Enter valid
+					specification");
+					document.EmployeeForm.specification.focus();
+					document.getElementById('specification').style.background =
+					"#B0E2FF";
+					return false;
+					}
+					return true;
+					}
+				</script>
+	</head>
+	<body>
+		<form name="EmployeeForm" action="" onSubmit="return validateComplete();">
+			<header> Employee Detail Form </header>
+			<div class="content">
+				<div class="space">
+					<label>Name</label>
+					<input type="text" name="name" id="name" placeholder="Employee Name"
+						autofocus required onkeypress="return namevalidate(event);" />
+				</div>
+				<div class="space">
+					<label>Email Id</label>
+					<input type="email" name="email" id="email" value=""
+						placeholder="Employee Email Id" required autofocus />
+				</div>
+				<div class="space">
+					<label>Date of Birth</label>
+					<input id="dob" name="dob" type="date" required autofocus />
+				</div>
+				<div class="space">
+					<label>Specification</label>
+					<input type="text" name="specification" id="specification"
+						list="fields" placeholder="Specification" autocomplete="on"
+						autofocus />
+					<datalist id="fields">
+						<option value="Networking" />
+						<option value="Testing" />
+						<option value="Software Development" />
+						<option value="Database Management" />
+						<option value="Human Resource Management" />
+						<option value="Designing" />
+					</datalist>
+				</div>
+				<div class="space">
+					<label>Interest Rating</label>
+					<input id="rating" name="rating" type="range" min="1" max="5"
+						value="" autofocus />
+				</div>
+				<div class="submit-design">
+					<input type="submit" name="Submit" value="Confirm Details" />
+				</div>
+			</div>
+		</form>
+	</body>
+</html>
