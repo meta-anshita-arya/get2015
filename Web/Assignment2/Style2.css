@@ -1,0 +1,57 @@
+
+body {
+background-image: url("texture.jpg");
+padding-left: 20%;
+line-height: 60px;
+}
+
+header {
+padding-top: 5%;
+padding-left: 15%;
+font-family: "Verdana";
+font-weight: bold;
+font-size: 24px;
+}
+
+.content {
+padding-top: 5%;
+padding-left: 10%;
+background: #F0F0F0;
+height: 400px;
+width: 60%;
+font-family: "Verdana";
+border: 0.5% solid #000fff;
+box-shadow: 10px 5px #998D7B;
+}
+
+.space {
+line-height: 60px;
+}
+
+label {
+float:
+left;
+width: 30%;
+text-align: left;
+margin-right: 0.5em;
+}
+
+input {
+font-family: Georgia, "Times New Roman", Times, serif;
+border: none;
+font-size: 16px;
+outline: 0;
+padding: 7px;
+width: 50%;
+}
+
+input :focus {
+border: 1px SOLID #EDEDED;
+}
+
+
+
+.submit-design {
+text-align: center;
+padding-left: 10px;
+}
