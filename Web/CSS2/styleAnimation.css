@@ -1,0 +1,27 @@
+.animation{
+    width: 100px;
+    height: 100px;
+	border-radius:120px 120px 120px 120px;
+    background-color: red;
+    position: relative;
+    -webkit-animation-name: showAnimation; 
+    -webkit-animation-duration: 4s; 
+    -webkit-animation-iteration-count: 3; 
+   
+}
+
+@-webkit-keyframes showAnimation {
+    0%   {background-color:red; left:0px; top:0px;}
+    8%     {background-color:#FF0066; left:200px; top:0px;}
+	16%   {background-color:#6600FF; left:400px; top:0px;}
+    25%   {background-color:blue; left:600px; top:0px;}
+	33%   {background-color:#660066; left:600px; top:200px;}
+	41%   {background-color:green; left:600px; top:400px;}
+	50%   {background-color:red; left:600px; top:600px;}
+	58%   {background-color:#FF0066; left:400px; top:600px;}
+	66%   {background-color:#6600FF; left:200px; top:600px;}
+	75%   {background-color:blue; left:0px; top:600px;}
+	83%   {background-color:#660066; left:0px; top:400px;}
+	91%   {background-color:green; left:0px; top:200px;}
+	100%  {background-color:red; left:0px; top:0px;}
+}

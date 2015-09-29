@@ -1,0 +1,42 @@
+.rectangle{
+	width: 200px;
+	height: 200px;
+    margin:50px;
+	background-color:#5CADFF;
+    border: 3px solid navy;
+    
+}
+
+ 
+.rotate{
+	width: 200px;
+	height: 200px;
+    margin-left:350px;
+	margin-top:-250px;
+	background-color:#5CADFF;
+    border: 3px solid navy;
+    -webkit-transform: rotate(70deg); 
+    transform: rotate(70deg);
+}
+
+.skew{
+	width: 200px;
+	height: 200px;
+    margin-left:650px;
+	margin-top:-200px;
+	background-color:#5CADFF;
+    border: 3px solid navy;
+    transform:skew(30deg,30deg);
+    
+}
+
+.scale{
+	width: 200px;
+	height: 200px;
+    margin-left:900px;
+	margin-top:-200px;
+	background-color:#5CADFF;
+    border: 3px solid navy;
+	transform:scale(.5,.5);
+    
+}
