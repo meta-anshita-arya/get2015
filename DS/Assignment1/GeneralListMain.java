@@ -1,52 +1,60 @@
-package list;
-
 import java.util.Scanner;
 
-public class GeneralListMain {
+// main class
+public class GeneralizedListMain {
 
 	public static void main(String[] args) {
 
-		System.out.println("enter generalized list \n");
+		System.out.println("Enter expression \n");
 		Scanner scan = new Scanner(System.in);
 		String inputList = scan.next();
-		int choice = 0;
+		int choice;
 		char mainChoice;
+		while (Validation.isExpression(inputList) != true) {
+			System.out.println("Enter Valid Expression");
+
+			inputList = scan.next();
+		}
 		GeneralizedList generalizedList = new GeneralizedList(inputList);
 
 		do {// Menu
-			System.out.println("Enter 1 to Display the linked list  "
-					+ "\n2 sum of the list" + "\n3 max from list"
-					+ "\n4 Search an element");
-			choice = scan.nextInt();
+
+			System.out.println("Menu :");
+			System.out.println("1.Enter to Display the linked list");
+			System.out.println("2.To calculate Sum of the list");
+			System.out.println("3.To calculate Maximum from list");
+			System.out.println("4.To Search an element");
+
+			choice = Validation.checkingChoice();
 
 			switch (choice) {
 			case 1:// to display list
-				System.out.println("Linked List is: ");
 				System.out.println(generalizedList);
 				break;
 			case 2:
 				// sum of list
-				System.out.println("Sum is" + generalizedList.calculateSum());
+				System.out.println("Sum of list is : "
+						+ generalizedList.calculateSum());
 
 				break;
 			case 3:
-				// sum of list
-				System.out.println("Max is" + generalizedList.calculateMax());
+				// Maximum from expression
+				System.out.println("Maximum Element from list :"
+						+ generalizedList.calculateMax());
 				break;
 			case 4:
+				// Searching value from expression
+				System.out.println("Enter value to search \n");
 
-				System.out.println("enter value to search \n");
-
-				System.out.println("value found"
-						+ generalizedList.searchValue(Integer.parseInt(scan
-								.next())));
+				System.out.println("Value Found :"
+						+ generalizedList.searchValue(Validation
+								.checkingChoice()));
 				break;
 
 			default:
 				System.out.println("Enter Correct Choice");
 			}
-			System.out.println("Do you want to continue");
-			mainChoice = scan.next().toUpperCase().charAt(0);
+			mainChoice = Validation.checkingString();
 		} while (mainChoice == 'Y');
 		scan.close();
 
