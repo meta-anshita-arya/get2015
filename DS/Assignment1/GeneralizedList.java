@@ -1,12 +1,10 @@
-package list;
-
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 public class GeneralizedList {
-	List<Object> linkedList = new LinkedList<Object>();
-	int index = 1;
+	private List<Object> linkedList;
+	private int index;
 
 	// return the linkedList
 	public List<Object> getLinkedList() {
@@ -18,8 +16,10 @@ public class GeneralizedList {
 		this.linkedList = linkedList;
 	}
 
-	// to generate linked list
+	// constructor to create generalized list
 	public GeneralizedList(String inputList) {
+		linkedList = new LinkedList<Object>();
+		index = 1;
 		String digit = "";
 		while (index < inputList.length() - 1) {
 
@@ -27,10 +27,8 @@ public class GeneralizedList {
 				index = index + 1;
 				linkedList.add(createSubList(inputList));
 				index = index + 1;
-
 			} else if (inputList.charAt(index) == ',') {
 				index = index + 1;
-
 			} else if (inputList.charAt(index) != ')') {
 				while (inputList.charAt(index) != ','
 						&& inputList.charAt(index) != ')') {
@@ -38,37 +36,30 @@ public class GeneralizedList {
 					index++;
 				}
 				linkedList.add(Integer.parseInt(digit));
-
 				digit = "";
 
 			}
 		}
 	}
 
-	// to generate sub-linked list
+	// for generalized sub list
 	private List<Object> createSubList(String inputList) {
 		String digit = "";
 		List<Object> linked = new LinkedList<Object>();
 		while (inputList.charAt(index) != ')' && index < inputList.length()) {
-
 			if (inputList.charAt(index) == ',') {
 				index++;
-
 			} else if (inputList.charAt(index) == '(') {
 				index = index + 1;
-
 				linked.add(createSubList(inputList));
-
-				index++;
+				index = index + 1;
 			} else {
-
 				while (inputList.charAt(index) != ','
 						&& inputList.charAt(index) != ')') {
 					digit = digit + inputList.charAt(index);
 					index++;
 				}
 				linked.add(Integer.parseInt(digit));
-
 				digit = "";
 			}
 		}
@@ -78,18 +69,20 @@ public class GeneralizedList {
 	@Override
 	public String toString() {
 
-		return "linkedList=" + linkedList;
+		return "Generalized List is :" + linkedList;
 	}
 
-	// to calculate sum
+	// To calculate sum of list
 	public int calculateSum() {
 		int sum = 0;
+		// iterating list
 		Iterator<Object> iterator = linkedList.iterator();
 		while (iterator.hasNext()) {
 			Object obj = iterator.next();
+			// if it is sub linked list
 			if (obj instanceof LinkedList) {
 				sum = sum + calculateSubListSum(obj);
-			} else {
+			} else {// if not list
 				sum = sum + (Integer) obj;
 
 			}
@@ -98,16 +91,17 @@ public class GeneralizedList {
 
 	}
 
-	// to calculate sub-list sum
+	// Calculating sum of sublist
 	private int calculateSubListSum(Object linked) {
 		int sum = 0;
+		// iterating list
 		Iterator<Object> iterator = ((List<Object>) linked).iterator();
 		while (iterator.hasNext()) {
 			Object obj = iterator.next();
+			// if it is sub linked list
 			if (obj instanceof LinkedList) {
 				sum = sum + calculateSubListSum(obj);
-
-			} else {
+			} else {// if not list
 				sum = sum + (Integer) obj;
 
 			}
@@ -115,64 +109,65 @@ public class GeneralizedList {
 		return sum;
 	}
 
-	// to find greatest number
+	// Function calculating maximum element of the list
 	public int calculateMax() {
+		// iterating list
 		Iterator<Object> iterator = linkedList.iterator();
-		int max = (int) linkedList.get(0);
+		int max = (Integer) linkedList.get(0);
 		while (iterator.hasNext()) {
 			Object obj = iterator.next();
+			// if it is sub linked list
 			if (obj instanceof LinkedList) {
 				int max1 = calculateSubListMax(obj);
-
 				if (max < max1) {
-
 					max = max1;
-
 				}
 
-			} else {
+			} else {// if not list
 				if (max < (Integer) obj) {
 					max = (Integer) obj;
 				}
-
 			}
 		}
 		return max;
 
 	}
 
-	// to find greatest number in sub list
+	// Function calculating maximum from a sublist
 	private int calculateSubListMax(Object linked) {
+		// iterating list
 		Iterator<Object> iterator = ((List<Object>) linked).iterator();
-		int max = (int) ((List<Object>) linked).get(0);
+		int max = (Integer) ((List<Object>) linked).get(0);
 		while (iterator.hasNext()) {
 			Object obj = iterator.next();
+			// if it is sub linked list
 			if (obj instanceof LinkedList) {
 				int max1 = calculateSubListMax(obj);
 				if (max < max1) {
 					max = max1;
 				}
-			} else {
+
+			} else {// if not list
 				if (max < (Integer) obj) {
 					max = (Integer) obj;
 				}
 			}
 		}
-
 		return max;
 	}
 
-	// to search
+	// Function to search an item
 	public boolean searchValue(int value) {
+		// iterating list
 		Iterator<Object> iterator = linkedList.iterator();
 		while (iterator.hasNext()) {
 			Object obj = iterator.next();
+			// if it is sub linked list
 			if (obj instanceof LinkedList) {
 				if (searchSubForValue(obj, value) == true) {
 					return true;
 				}
-
-			} else {
+			} else {// if not a list
 				if (value == (Integer) obj) {
 					return true;
 				}
@@ -183,17 +178,18 @@ public class GeneralizedList {
 
 	}
 
-	// to search in sub list
+	// Function to search element in sublist
 	private boolean searchSubForValue(Object linked, int value) {
+		// iterating list
 		Iterator<Object> iterator = ((List<Object>) linked).iterator();
 		while (iterator.hasNext()) {
 			Object obj = iterator.next();
+			// if it is sub linked list
 			if (obj instanceof LinkedList) {
 				if (searchSubForValue(obj, value) == true) {
 					return true;
 				}
-
-			} else {
+			} else {// if not a list
 				if (value == (Integer) obj) {
 					return true;
 				}
