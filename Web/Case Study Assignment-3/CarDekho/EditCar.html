@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LoginMenu</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="scripts/scriptCreate.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="styleLogin.css">
+<script type="text/javascript" src="scripts/scriptMain.js"></script>
+<script>
+	window.history.forward();
+	function query() {
+		var i = document.URL.indexOf('?');
+		var p = [];
+		if (i != -1) {
+			var p1 = document.URL.substring(i + 1, document.URL.length).split(
+					'&');
+			var nm = [];
+			for ( var i = 0; i < p1.length; i++) {
+				nm = p1[i].split('=');
+				p[nm[0]] = nm[1];
+			}
+
+		}
+		return p;
+	}
+</script>
+</head>
+<body>
+	<header>
+		<br />
+		<span id="logo">Car Dekho</span>
+		<div id="user">
+			<script>
+				p = query();
+				email = p["email"];
+				document.write("<a href='login.html'>" + email + "</a>");
+			</script>
+		</div>
+	</header>
+	<nav>
+		<a href="home.html">Home</a> 
+		<span class="space"><a href="about.html">About Us</a></span> 
+		<span class="space"><a href="contact.html">Contact Us</a></span>
+	</nav>
+
+	<div class="link">
+		<span class="space">
+		<a href="addCar.html?email=" id="ahref" onclick="myFunction()">Add New Car</a></span><br /> 
+		<span class="space">
+		<a href="searchCar.html?email=" id="ahref1" onclick="myFunction1()">Search Car</a></span><br />
+		<span class="space">
+		<a href="EditCar.html?email="id="ahref2" onclick="myFunction2()">Update Car Details</a></span><br />
+	</div>
+
+	<script>
+		function myFunction() {
+			document.getElementById("ahref").href = document
+					.getElementById("ahref").href
+					+ email;
+		}
+		function myFunction1() {
+			document.getElementById("ahref1").href = document
+					.getElementById("ahref1").href
+					+ email;
+		}
+		function myFunction2() {
+			document.getElementById("ahref2").href = document
+					.getElementById("ahref2").href
+					+ email;
+		}
+	</script>
+	<div class="content">
+		<h1>Edit Car Details</h1>
+		<div class="details">
+			<br /> <br />
+			<form action="LoginMenu.html">
+				<div class="spaceNew">
+					<select id='makeCombo' onchange='makeComboChange();'>
+
+						<option value='' title='-select one-'>-Company-</option>
+						<option value='0' title='Audi'>Audi</option>
+						<option value='1' title='Ford'>Ford</option>
+						<option value='2' title='Honda'>Honda</option>
+					</select>
+				</div>
+				<br /> <br /> <br /> <br />
+				<div class="spaceNew">
+					<select id='modelCombo' onchange='modelComboChange();'>
+						<option value='' title='-select company first-'>-select company first-</option>
+					</select>
+				</div>
+				<br /> <br /> <br /> <br />
+				<div class="spaceNew">
+					<input name="text2" type="text" id="EngineInCC" required placeholder="EngineInCC">
+				</div>
+				<br /> <br /> <br /> <br />
+				<div class="spaceNew">
+					<input name="text2" type="text" id="Milage" required placeholder="Milage">
+				</div>
+				<br /> <br /> <br /> <br />
+				<div class="spaceNew">
+					<input name="text2" type="text" id="Price" required placeholder="Price">
+				</div>
+				<br /> <br />
+				<div class="submit-design">
+					<div class="spaceNew">
+						<button name="Submit" onclick="return validate(1);">Edit Car Detail</button>
+					</div>
+				</div>
+				<br /> <br />
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+
