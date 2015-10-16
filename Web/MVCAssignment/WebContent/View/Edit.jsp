@@ -11,6 +11,7 @@
 	<header>
 	<h1>Edit</h1>
 	</header>
+	<script type="text/javascript" src="../MVCAssignment/register.js"></script>
 	<ul>
 		<li><a
 			href="http://localhost:8080/MVCAssignment/View/LandingPage.jsp">Landing
