@@ -1,3 +1,5 @@
+package list;
+
 import java.util.Scanner;
 
 // main class
@@ -34,21 +36,24 @@ public class GeneralizedListMain {
 			case 2:
 				// sum of list
 				System.out.println("Sum of list is : "
-						+ generalizedList.calculateSum());
+						+ generalizedList.calculateSum(generalizedList
+								.getLinkList()));
 
 				break;
 			case 3:
 				// Maximum from expression
 				System.out.println("Maximum Element from list :"
-						+ generalizedList.calculateMax());
+						+ generalizedList.calculateMax(generalizedList
+								.getLinkList()));
 				break;
 			case 4:
 				// Searching value from expression
 				System.out.println("Enter value to search \n");
 
 				System.out.println("Value Found :"
-						+ generalizedList.searchValue(Validation
-								.checkingChoice()));
+						+ generalizedList.searchForValue(
+								generalizedList.getLinkList(),
+								Validation.checkingChoice()));
 				break;
 
 			default:
