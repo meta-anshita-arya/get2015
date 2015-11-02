@@ -1,6 +1,16 @@
 
+package Assignment2;
+
+/**
+ * @author Anshita
+ *
+ */
 public class OneDay extends Game
 {
+	/* To end Game
+	 * (non-Javadoc)
+	 * @see Assignment2.Game#endPlay()
+	 */
 	@Override
 	void endPlay() 
 	{
@@ -10,6 +20,10 @@ public class OneDay extends Game
 
 
 
+	/* To start game
+	 * (non-Javadoc)
+	 * @see Assignment2.Game#startPlay()
+	 */
 	@Override
 	void startPlay() {
 		System.out.println("Toss performed. Team A won the toss.");
