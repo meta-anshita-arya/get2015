@@ -13,10 +13,10 @@ public abstract class Game
 	{
 		boolean flag =false;
 		if (noOfTeams != 2) {//if no of teams not equal to 2 then game cannot start
-			System.out.println("Not sufficient teams.");
+			System.out.println("Not sufficient teams.(Hint:There should be 2 teams)");
 		}
 		if (noOfPlayers != 11) {//if no of players not equal to 11 then game cannot start
-			System.out.println("Not sufficient members in the team.");
+			System.out.println("Not sufficient members in the team.(Hint:There should be 11 team members)");
 		} 
 		else if((noOfTeams == 2)&&(noOfPlayers == 11)) {//if no of teams equal to 2 and no of players equal to 11 then start game
 			System.out.println("Game is ready to start.\n");
