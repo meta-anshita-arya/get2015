@@ -6,7 +6,7 @@ public class HrManager extends Approver
 	{
 		 if (noOfDays <= 5)
 	      {
-	        System.out.println(" Leave GRanted by  Hr manager ");
+	        System.out.println(" Leave Granted by  Hr manager ");
 	      }
 	      else 
 	      {
