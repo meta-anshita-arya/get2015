@@ -1,17 +1,19 @@
+import java.util.Scanner;
 
 public class ChainOfResponsiblityinterface {
 
-	public static void main(String[] args) 
-	{
-		Approver anurag = new Mentor();
-	      Approver anand = new SeniorMentor();
-	      Approver abhishek = new HrManager();
-	 
-	      anurag.SetSuccessor(anand);
-	      anand.SetSuccessor(abhishek);
+	public static void main(String[] args) {
+		Approver objectMentor = new Mentor();
+		Approver objectSeniorMentor = new SeniorMentor();
+		Approver objectHrManager = new HrManager();
 
-	    anurag.ProcessRequest(1);
+		objectMentor.SetSuccessor(objectSeniorMentor);
+		objectSeniorMentor.SetSuccessor(objectHrManager);
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter number of days of leave");
+		int leave = scan.nextInt();
 
+		objectMentor.ProcessRequest(leave);
 
 	}
 
