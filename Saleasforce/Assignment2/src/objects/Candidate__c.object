@@ -47,87 +47,45 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <description>People who have applied</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>Age__c</fullName>
+        <fullName>Candidate_Position__c</fullName>
         <externalId>false</externalId>
-        <formula>YEAR(TODAY())-YEAR( DOB__c )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Age</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Class__c</fullName>
-        <externalId>false</externalId>
-        <label>Class</label>
-        <referenceTo>Class__c</referenceTo>
-        <relationshipLabel>Students</relationshipLabel>
-        <relationshipName>Students</relationshipName>
+        <label>Position</label>
+        <referenceTo>Position__c</referenceTo>
+        <relationshipLabel>Candidates</relationshipLabel>
+        <relationshipName>Candidates</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
-        <fullName>DOB__c</fullName>
+        <fullName>City__c</fullName>
+        <description>City of candidate</description>
         <externalId>false</externalId>
-        <label>DOB</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>First_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>First Name</label>
-        <length>30</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Last_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>Last Name</label>
-        <length>30</length>
-        <required>true</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Married__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Married</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Sex__c</fullName>
-        <externalId>false</externalId>
-        <label>Sex</label>
+        <inlineHelpText>Location</inlineHelpText>
+        <label>City</label>
         <picklist>
             <picklistValues>
-                <fullName>M</fullName>
+                <fullName>Jaipur</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>F</fullName>
+                <fullName>Delhi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Patna</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -136,35 +94,19 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>WifeName__c</fullName>
+        <fullName>End_Date__c</fullName>
         <externalId>false</externalId>
-        <label>WifeName</label>
-        <length>30</length>
+        <label>End Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Date</type>
     </fields>
-    <fields>
-        <fullName>email__c</fullName>
-        <externalId>false</externalId>
-        <label>email</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields>
-    <label>Student</label>
-    <listViews>
-        <fullName>All</fullName>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
+    <label>Candidate</label>
     <nameField>
-        <label>Student Name</label>
+        <label>Candidate Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Students</pluralLabel>
+    <pluralLabel>Candidates</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

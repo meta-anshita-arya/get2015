@@ -330,11 +330,13 @@
     </listViews>
     <listViews>
         <fullName>NewLastWeek</fullName>
+        <columns>Experience__c</columns>
+        <columns>Subjects__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>CONTACT.CREATED_DATE</field>
+            <field>CONTACT.LAST_NAME</field>
             <operation>equals</operation>
-            <value>LAST_WEEK</value>
+            <value>test</value>
         </filters>
         <label>New Last Week</label>
     </listViews>
