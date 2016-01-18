@@ -273,6 +273,15 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>Reminder_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( AND(DAY(TODAY()) &gt; DAY(Birthdate), MONTH(TODAY()) &gt;= MONTH(Birthdate))  ,  DATE( YEAR( TODAY() +1) ,MONTH(Birthdate),DAY(Birthdate)) , DATE( YEAR( TODAY()) ,MONTH(Birthdate),DAY(Birthdate)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Reminder Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>ReportsToId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
