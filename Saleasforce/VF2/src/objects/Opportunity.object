@@ -100,6 +100,33 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Custom_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Custom Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Close</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reset</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>DeliveryInstallationStatus__c</fullName>
         <externalId>false</externalId>
         <label>Delivery/Installation Status</label>
